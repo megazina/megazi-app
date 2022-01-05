@@ -1,6 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
 
+import TagManager from 'react-gtm-module'
+const tagManagerArgs = {
+  gtmId: 'GTM-PN6QQJR'
+}
+TagManager.initialize(tagManagerArgs)
+
 function App() {
   return (
     <div className="App">
@@ -15,7 +21,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Happy Days!
+          Happy Days! - Learn React
         </a>
       </header>
     </div>
