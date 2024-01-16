@@ -6,19 +6,20 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+jobs:
+- job: build_app
+  pool:
+    vmImage: ubuntu-latest
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+  - script: |
+      npm install
+      npm run build
+    displayName: 'npm install and build'
 
 - job: notify_splunk
   pool: server
